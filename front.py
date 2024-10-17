@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit-option-menu import option-menu
+from streamlit_option_menu import option-menu
 from PIL import Image
 from streamlit_card import card
 import pandas as pd
