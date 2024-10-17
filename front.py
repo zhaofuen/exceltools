@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit_option_menu import option_menu
+from streamlit-option-menu import option-menu
 from PIL import Image
 from streamlit_card import card
 import pandas as pd
@@ -57,7 +57,7 @@ language_css = """
     """
 with st.sidebar:
     st.image("logo.png",use_column_width=True)
-    choose = option_menu(
+    choose = option-menu(
         "Excel实用工具",
         # ["简介", "sheet自动截图", "分拆sheet","提取PDF表格","提取word表格","提取Excel图片","提取Word图片","Excel表格比对","Excel公式查询"],
         # icons=["house", "images", "microsoft","water", "tree","trophy", "back","stickies", "star","app-indicator"],
