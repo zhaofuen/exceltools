@@ -2,7 +2,7 @@ import os
 from datetime import datetime
 import streamlit as st
 import xlwings as xw
-import excel3img
+# import excel3img
 def delete_empty_folders_in_current_directory():
         """
         检查当前目录下是否有空的文件夹，并删除这些空文件夹。
@@ -154,28 +154,28 @@ def split_data(src,target_folder):
 # file_path = './data/'
 # batch_process_excel_files(file_path)
 # Excel 转换为图片的函数
-def out_img(excel_file, sheet_list,outputdir):
-    """
-    将Excel文件中的指定工作表转换为图片。
+# def out_img(excel_file, sheet_list,outputdir):
+#     """
+#     将Excel文件中的指定工作表转换为图片。
 
-    参数:
-    excel_file: string, Excel文件的路径。
-    sheet_list: list, 需要转换为图片的工作表名称列表。
-    outputdir: string, 输出图片文件的目录路径。
-    返回:
-    无返回值，但会在当前目录下生成对应工作表的图片文件。
-    """
-    try:
-        # 开始转换操作前的提示
-        print("开始截图，请耐心等待....")
-        # 遍历工作表列表，对每个工作表进行转换
-        for sheet_name in sheet_list:
-            # 调用excel2img模块的export_img函数进行转换
-            # 参数包括Excel文件路径、图片文件名、工作表名和自定义配置（这里设为None）
+#     参数:
+#     excel_file: string, Excel文件的路径。
+#     sheet_list: list, 需要转换为图片的工作表名称列表。
+#     outputdir: string, 输出图片文件的目录路径。
+#     返回:
+#     无返回值，但会在当前目录下生成对应工作表的图片文件。
+#     """
+#     try:
+#         # 开始转换操作前的提示
+#         print("开始截图，请耐心等待....")
+#         # 遍历工作表列表，对每个工作表进行转换
+#         for sheet_name in sheet_list:
+#             # 调用excel2img模块的export_img函数进行转换
+#             # 参数包括Excel文件路径、图片文件名、工作表名和自定义配置（这里设为None）
 
-            image_filname = os.path.join(outputdir,f"{sheet_name}.png")
-            excel3img.export_img(excel_file, image_filname,sheet_name, None)
-            print(f"{sheet_name} 截图完成")
-    except Exception as e:
-        # 捕获转换过程中可能出现的异常，并打印异常信息
-        print("截图失败", e)
+#             image_filname = os.path.join(outputdir,f"{sheet_name}.png")
+#             excel3img.export_img(excel_file, image_filname,sheet_name, None)
+#             print(f"{sheet_name} 截图完成")
+#     except Exception as e:
+#         # 捕获转换过程中可能出现的异常，并打印异常信息
+#         print("截图失败", e)
