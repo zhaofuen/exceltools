@@ -274,7 +274,7 @@ elif choose == "Excel表格比对":
         st.markdown(html_css, unsafe_allow_html=True)
         st.markdown('<p class="font">Excel表格比对</p>', unsafe_allow_html=True)
     st.success("在数据处理与分析中，经常需要比较来自不同来源的数据集，特别是处理涉及多个Excel工作簿和工作表的场景时。")
-    st.error("工具能有效快速实现两个Excel文件中多个Sheet的数据的比对，找出差异并保存结果，适用于财务审计、数据清洗或者需要跨数据集一致性检查的 场景。")
+    st.error("工具能有效快速实现两个Excel文件中多个Sheet的数据的比对，找出差异并保存结果，适用于财务审计、数据清洗或者需要跨数据集一致性检查的场景。注意：待比对表格不要出现图片之类，尽量全部是纯数据的比对，否则会出现错误。")
     import os
     # def download_res(file_path):
     #     if file_path:
