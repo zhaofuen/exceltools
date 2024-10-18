@@ -137,41 +137,41 @@ elif choose == "Sheet自动截图":
         st.markdown('<p class="font">sheet自动截图</p>', unsafe_allow_html=True)
      st.success("轻松实现表格数据截图的自动化处理，无论文件中有多少个Sheet表格需要截图，只需点击一下即可！3秒钟生成对应的截图文件。")
      st.error("身为打工人，每天都需要汇总当天公司运营情况，一张一张地将表格截图发微信给老板看，不但效率低下而且容易出错，每当有新的表格需要汇总时，都需要重新进行截图操作，OMG，重复劳动的噩梦。")
-    #  ExcelShotool_dirs = os.path.basename(create_directory('excelshotool'))
-    #  filenameShot = None
-    #  def upload_shot_Save():
-    #     global filenameShot
-    #     style_language_uploader()
-    #     uploaded_files = st.file_uploader("请选择待截图的文件:",accept_multiple_files =True, type=["xlsx"])
-    #     st.markdown(language_css,unsafe_allow_html=True)
-    #     #保存文件
-    #     if uploaded_files:
-    #         for uploaded_file in uploaded_files:
-    #             file_contents = uploaded_file.getvalue()
-    #             file_path = os.path.join(ExcelShotool_dirs, uploaded_file.name)
-    #             filenameShot = uploaded_file.name
-    #                 # 将文件保存到本地文件系统
-    #             with open(file_path, "wb") as f:
-    #                     f.write(file_contents)
-    #                 # 获取文件路径
-    #             xlsx = os.path.join(os.path.dirname(os.path.abspath(__file__)),file_path)
-    #             wb = load_workbook(xlsx)
-    #             sheet_names = wb.sheetnames
-    #             out_img(xlsx,sheet_names,ExcelShotool_dirs)
-    #             st.markdown(custom_css,unsafe_allow_html=True)
-    #             if st.button("Excel表格截图"):
-    #                     with zipfile.ZipFile(f'{filenameShot}shot.zip', 'w', zipfile.ZIP_DEFLATED) as zipf:
-    #                             # 遍历文件夹中的所有文件和子文件夹
-    #                         for root, dirs, files in os.walk(ExcelShotool_dirs):
-    #                             for file in files:
-    #                                 file_path = os.path.join(root, file)
-    #                                 # 将文件添加到压缩文件中
-    #                                 zipf.write(file_path, os.path.relpath(file_path, ExcelShotool_dirs))
-    #                     st.write("提取完成")
-    #                     download_zip_file(f'{filenameShot}shot.zip')
-    #     else:
-    #         return None
-    #  upload_shot_Save()
+     ExcelShotool_dirs = os.path.basename(create_directory('excelshotool'))
+     filenameShot = None
+     def upload_shot_Save():
+        global filenameShot
+        style_language_uploader()
+        uploaded_files = st.file_uploader("请选择待截图的文件:",accept_multiple_files =True, type=["xlsx"])
+        st.markdown(language_css,unsafe_allow_html=True)
+        #保存文件
+        if uploaded_files:
+            for uploaded_file in uploaded_files:
+                file_contents = uploaded_file.getvalue()
+                file_path = os.path.join(ExcelShotool_dirs, uploaded_file.name)
+                filenameShot = uploaded_file.name
+                    # 将文件保存到本地文件系统
+                with open(file_path, "wb") as f:
+                        f.write(file_contents)
+                    # 获取文件路径
+                xlsx = os.path.join(os.path.dirname(os.path.abspath(__file__)),file_path)
+                wb = load_workbook(xlsx)
+                sheet_names = wb.sheetnames
+                out_img(xlsx,sheet_names,ExcelShotool_dirs)
+                st.markdown(custom_css,unsafe_allow_html=True)
+                if st.button("Excel表格截图"):
+                        with zipfile.ZipFile(f'{filenameShot}shot.zip', 'w', zipfile.ZIP_DEFLATED) as zipf:
+                                # 遍历文件夹中的所有文件和子文件夹
+                            for root, dirs, files in os.walk(ExcelShotool_dirs):
+                                for file in files:
+                                    file_path = os.path.join(root, file)
+                                    # 将文件添加到压缩文件中
+                                    zipf.write(file_path, os.path.relpath(file_path, ExcelShotool_dirs))
+                        st.write("提取完成")
+                        download_zip_file(f'{filenameShot}shot.zip')
+        else:
+            return None
+     upload_shot_Save()
 
 elif choose == "Sheet自动分拆":
     col1,col2,col3 = st.columns([1,2,0.5])
@@ -201,7 +201,7 @@ elif choose == "Sheet自动分拆":
                 split_data(xlsl,tearexceltool_dirs)
                 st.markdown(custom_css,unsafe_allow_html=True)
                 if st.button("Excel表格分拆"):
-                        with zipfile.ZipFile(f'{filenameTear}.zip', 'w', zipfile.ZIP_DEFLATED) as zipf:
+                        with zipfile.ZipFile(f'{filenameTear}tear.zip', 'w', zipfile.ZIP_DEFLATED) as zipf:
                                 # 遍历文件夹中的所有文件和子文件夹
                             for root, dirs, files in os.walk(tearexceltool_dirs):
                                 for file in files:
@@ -209,7 +209,7 @@ elif choose == "Sheet自动分拆":
                                     # 将文件添加到压缩文件中
                                     zipf.write(file_path, os.path.relpath(file_path, tearexceltool_dirs))
                         st.write("提取完成")
-                        download_zip_file(f'{filenameTear}.zip')
+                        download_zip_file(f'{filenameTear}tear.zip')
         else:
             return None
     upload_tear_Save()
